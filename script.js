@@ -1,30 +1,35 @@
-// Intersection Animations
-const fades = document.querySelectorAll('.fade');
+/* Reveal on scroll */
+const revealElements = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-});
+const revealObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
 
-fades.forEach(el => observer.observe(el));
+revealElements.forEach(el => revealObserver.observe(el));
 
-// Counter Animation
-const counters = document.querySelectorAll('.counter');
+/* Counter animation */
+const numbers = document.querySelectorAll(".number");
 
-counters.forEach(counter => {
-  const target = +counter.dataset.target;
-  let count = 0;
+numbers.forEach(num => {
+  const target = +num.dataset.target;
+  let current = 0;
+
+  const increment = Math.ceil(target / 120);
 
   const update = () => {
-    count += Math.ceil(target / 100);
-    if (count < target) {
-      counter.innerText = count;
+    current += increment;
+    if (current < target) {
+      num.textContent = current;
       requestAnimationFrame(update);
     } else {
-      counter.innerText = target;
+      num.textContent = target;
     }
   };
 

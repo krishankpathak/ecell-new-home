@@ -1,89 +1,101 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>E-Cell University of Lucknow</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Cell | University of Lucknow</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-</head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="styles.css" />
+</head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="nav-left">
-    <img src="logo-ecell.png" alt="E-Cell">
-    <img src="logo-lu.png" alt="LU">
-  </div>
-  <ul class="nav-links">
-    <li>Home</li>
-    <li>About</li>
-    <li>Mission</li>
-    <li>Events</li>
-    <li>Team</li>
-    <li>Contact</li>
-  </ul>
-</nav>
-
-<!-- HERO / MISSION -->
-<section class="hero fade">
-  <h1>Our Mission & Vision</h1>
-  <p>Driven by purpose, guided by values, committed to impact.</p>
-
-  <div class="cards">
-    <div class="card">
-      <h2>Mission</h2>
-      <p>
-        To create a thriving ecosystem that nurtures entrepreneurial talent
-        and transforms innovative ideas into ventures.
-      </p>
+<header class="navbar">
+  <div class="nav-container">
+    <div class="brand">
+      <span class="logo">E-Cell</span>
+      <span class="divider"></span>
+      <span class="logo muted">University of Lucknow</span>
     </div>
 
-    <div class="card purple">
-      <h2>Vision</h2>
-      <p>
-        To be India’s leading student entrepreneurship hub,
-        creating job creators.
-      </p>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Mission</a>
+      <a href="#">Events</a>
+      <a href="#">Team</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="section hero reveal">
+    <h1>Our Mission & Vision</h1>
+    <p class="subtitle">
+      Driven by purpose, guided by values, committed to building
+      the next generation of entrepreneurs.
+    </p>
+
+    <div class="card-row">
+      <article class="card">
+        <h2>Mission</h2>
+        <p>
+          To nurture entrepreneurial talent by providing mentorship,
+          resources, and opportunities that convert ideas into
+          real-world ventures.
+        </p>
+      </article>
+
+      <article class="card accent">
+        <h2>Vision</h2>
+        <p>
+          To become a nationally recognized entrepreneurship hub
+          empowering students to become job creators.
+        </p>
+      </article>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CORE VALUES -->
-<section class="values fade">
-  <h2>Our Core Values</h2>
-  <div class="grid">
-    <div class="value-card">Innovation</div>
-    <div class="value-card">Collaboration</div>
-    <div class="value-card">Social Impact</div>
-    <div class="value-card">Excellence</div>
-  </div>
-</section>
+  <!-- VALUES -->
+  <section class="section values reveal">
+    <h2 class="section-title">Our Core Values</h2>
 
-<!-- GOALS -->
-<section class="goals fade">
-  <div class="goal">
-    <span class="counter" data-target="500">0</span>+
-    <p>Students Empowered</p>
-  </div>
-  <div class="goal">
-    <span class="counter" data-target="50">0</span>+
-    <p>Startups Incubated</p>
-  </div>
-  <div class="goal">
-    <span class="counter" data-target="100">0</span>+
-    <p>Events</p>
-  </div>
-</section>
+    <div class="value-grid">
+      <div class="value">Innovation</div>
+      <div class="value">Collaboration</div>
+      <div class="value">Social Impact</div>
+      <div class="value">Excellence</div>
+    </div>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 E-Cell University of Lucknow</p>
+  <!-- GOALS -->
+  <section class="section goals reveal">
+    <div class="goal">
+      <span class="number" data-target="500">0</span>
+      <p>Students Empowered</p>
+    </div>
+    <div class="goal">
+      <span class="number" data-target="50">0</span>
+      <p>Startups Incubated</p>
+    </div>
+    <div class="goal">
+      <span class="number" data-target="100">0</span>
+      <p>Events Organized</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© 2026 Entrepreneurship Cell, University of Lucknow</p>
 </footer>
 
-<script src="script.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
