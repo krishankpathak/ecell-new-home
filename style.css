@@ -1,107 +1,43 @@
-/* =========================
-   DESIGN TOKENS
-========================= */
 :root {
-  --bg: #050814;
-  --panel: rgba(255,255,255,0.06);
-  --border: rgba(255,255,255,0.12);
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --accent: #7c7cff;
-  --accent-2: #38bdf8;
-  --radius: 18px;
-  --blur: blur(20px);
+  --bg: #ffffff;
+  --ink: #0a0a0a;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --accent: #111827;
 }
 
-/* =========================
-   RESET
-========================= */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
   font-family: Inter, system-ui;
-  background: radial-gradient(circle at top, #0b1025, #020617);
-  color: var(--text);
-  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.65;
 }
 
-/* =========================
-   BACKGROUND ORBS
-========================= */
-.bg-orbs {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.orb {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  filter: blur(120px);
-  opacity: 0.5;
-  animation: float 20s infinite alternate ease-in-out;
-}
-
-.orb-1 {
-  background: #6366f1;
-  top: -100px;
-  left: -100px;
-}
-
-.orb-2 {
-  background: #22d3ee;
-  top: 40%;
-  right: -150px;
-  animation-delay: 4s;
-}
-
-.orb-3 {
-  background: #a855f7;
-  bottom: -150px;
-  left: 30%;
-  animation-delay: 8s;
-}
-
-@keyframes float {
-  from { transform: translateY(0); }
-  to { transform: translateY(60px); }
-}
-
-/* =========================
-   LAYOUT
-========================= */
-.page {
-  position: relative;
-  z-index: 1;
-}
-
-.container {
-  max-width: 1100px;
+/* layout */
+.wrap {
+  max-width: 1200px;
   margin: auto;
-  padding: 0 24px;
+  padding: 0 32px;
 }
 
-/* =========================
-   NAV
-========================= */
+/* nav */
 .nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(5,8,20,0.6);
-  backdrop-filter: var(--blur);
-  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.9);
+  border-bottom: 1px solid var(--line);
   z-index: 10;
 }
 
 .nav-inner {
-  height: 68px;
+  height: 72px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -113,153 +49,121 @@ body {
 }
 
 .nav a {
-  margin-left: 24px;
+  margin-left: 28px;
   font-size: 14px;
   color: var(--muted);
-  transition: color 0.3s;
 }
 
-.nav a:hover {
-  color: var(--text);
-}
-
-/* =========================
-   HERO
-========================= */
+/* hero */
 .hero {
-  min-height: 100vh;
-  display: flex;
+  padding: 200px 0 160px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 80px;
   align-items: center;
 }
 
 .hero h1 {
-  font-size: clamp(42px, 6vw, 72px);
+  font-size: clamp(44px, 6vw, 72px);
   font-weight: 900;
-  letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #fff, #a5b4fc);
-  -webkit-background-clip: text;
-  color: transparent;
+  letter-spacing: -0.04em;
 }
 
 .hero p {
-  margin-top: 24px;
-  max-width: 540px;
+  margin-top: 28px;
+  max-width: 520px;
   font-size: 18px;
   color: var(--muted);
 }
 
-/* =========================
-   SECTIONS
-========================= */
+.hero-line {
+  height: 320px;
+  border-left: 2px solid var(--ink);
+}
+
+/* sections */
 .section {
   padding: 140px 0;
 }
 
-/* =========================
-   GLASS CARDS
-========================= */
-.grid-2 {
-  display: grid;
-  gap: 48px;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+.section.muted {
+  background: #fafafa;
 }
 
-.card {
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.08),
-    rgba(255,255,255,0.02)
-  );
-  backdrop-filter: var(--blur);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+  gap: 64px;
+}
+
+/* panels */
+.panel {
   padding: 48px;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.1),
-    0 40px 80px rgba(0,0,0,0.4);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid var(--line);
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.15),
-    0 60px 120px rgba(0,0,0,0.6);
+.panel h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
 }
 
-.card.accent {
-  background:
-    radial-gradient(circle at top, rgba(124,124,255,0.3), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
+.panel.emphasis {
+  border-left: 6px solid var(--ink);
 }
 
-/* =========================
-   VALUES
-========================= */
-.values {
+/* principles */
+.principles {
+  margin-top: 40px;
   display: flex;
-  gap: 16px;
+  gap: 40px;
   flex-wrap: wrap;
-  margin-top: 32px;
 }
 
-.values span {
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid var(--border);
-  font-size: 14px;
-  backdrop-filter: var(--blur);
+.principles span {
+  font-weight: 600;
+  position: relative;
 }
 
-/* =========================
-   STATS
-========================= */
-.stats {
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.04),
-    rgba(255,255,255,0.01)
-  );
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+.principles span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
 }
 
-.stats-grid {
+/* metrics */
+.metrics {
+  padding: 120px 0;
+  border-top: 1px solid var(--line);
+}
+
+.metrics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 48px;
-  text-align: center;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 64px;
+  text-align: left;
 }
 
-.stats strong {
-  font-size: 52px;
+.metrics strong {
+  font-size: 56px;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-  color: transparent;
 }
 
-/* =========================
-   FOOTER
-========================= */
+.metrics p {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+/* footer */
 footer {
   padding: 48px;
-  text-align: center;
-  color: var(--muted);
+  border-top: 1px solid var(--line);
   font-size: 14px;
-}
-
-/* =========================
-   REVEAL
-========================= */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s cubic-bezier(.22,.61,.36,1);
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: none;
+  color: var(--muted);
 }
