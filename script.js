@@ -1,11 +1,14 @@
 // reveal
 const items = document.querySelectorAll(".reveal");
 
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add("show");
-  });
-},{ threshold: 0.15 });
+const obs = new IntersectionObserver(
+  entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add("show");
+    });
+  },
+  { threshold: 0.2 }
+);
 
 items.forEach(i => obs.observe(i));
 
@@ -13,7 +16,7 @@ items.forEach(i => obs.observe(i));
 document.querySelectorAll("[data-count]").forEach(el => {
   const target = +el.dataset.count;
   let v = 0;
-  const step = Math.ceil(target / 120);
+  const step = Math.ceil(target / 140);
 
   const tick = () => {
     v += step;
