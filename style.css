@@ -1,23 +1,28 @@
-/* =========================
-   ROOT & RESET
-========================= */
+/* ============================================================
+   E-CELL FoET | UNIVERSITY OF LUCKNOW
+   PREMIUM ENTREPRENEURSHIP EDITORIAL STYLE
+   (Inspired by high-end 99designs personal brand layouts)
+============================================================ */
+
+/* -------------------- ROOT TOKENS -------------------- */
 :root {
-  --bg-light: #ffffff;
-  --bg-dark: #111111;
-  --text-dark: #1b1b1b;
-  --text-muted: #6b6b6b;
-  --accent: #f4c430; /* Gold accent */
-  --accent-dark: #d9aa1c;
-  --border-light: #e6e6e6;
+  --white: #ffffff;
+  --black: #0f0f0f;
+  --dark: #151515;
+  --gray: #6f6f6f;
+  --light-gray: #e6e6e6;
+
+  --gold: #f2c94c;
+  --gold-soft: #f7d774;
+
   --max-width: 1200px;
 }
 
+/* -------------------- RESET -------------------- */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -25,49 +30,35 @@ html {
 }
 
 body {
+  margin: 0;
   font-family: "Inter", sans-serif;
-  background: var(--bg-light);
-  color: var(--text-dark);
-  line-height: 1.7;
+  background: var(--white);
+  color: var(--black);
+  line-height: 1.8;
 }
 
-/* =========================
-   CONTAINER & UTILITIES
-========================= */
+/* -------------------- CONTAINER -------------------- */
 .container {
   max-width: var(--max-width);
-  margin: auto;
-  padding: 0 24px;
+  margin: 0 auto;
+  padding: 0 28px;
 }
 
-.section {
-  padding: 96px 0;
-}
-
-.muted {
-  color: var(--text-muted);
-  max-width: 720px;
-  margin-top: 12px;
-}
-
-/* =========================
-   NAVBAR
-========================= */
+/* -------------------- NAVBAR -------------------- */
 .nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border-light);
-  z-index: 1000;
+  background: rgba(255,255,255,0.97);
+  border-bottom: 1px solid var(--light-gray);
+  z-index: 999;
 }
 
 .nav-inner {
+  height: 78px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
 }
 
 .brand {
@@ -77,28 +68,29 @@ body {
 }
 
 .logo-img {
-  height: 42px;
-  width: auto;
+  height: 46px;
 }
 
 .brand-text strong {
   display: block;
-  font-size: 15px;
-  letter-spacing: 0.04em;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .brand-text span {
-  font-size: 12px;
-  color: var(--text-muted);
+  font-size: 11px;
+  color: var(--gray);
+  letter-spacing: 0.08em;
 }
 
 nav a {
-  margin-left: 32px;
-  font-size: 13px;
-  letter-spacing: 0.12em;
+  margin-left: 36px;
+  font-size: 12px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--text-dark);
+  color: var(--black);
   position: relative;
 }
 
@@ -106,106 +98,113 @@ nav a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -6px;
-  width: 0%;
+  bottom: -10px;
+  width: 0;
   height: 2px;
-  background: var(--accent);
-  transition: width 0.3s ease;
+  background: var(--gold);
+  transition: width .35s ease;
 }
 
 nav a:hover::after {
   width: 100%;
 }
 
-/* =========================
-   HERO
-========================= */
+/* -------------------- HERO -------------------- */
 .hero {
   height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
+    url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d");
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 120px;
+  align-items: center;
+  padding-top: 80px;
 }
 
 .hero h1 {
-  font-size: clamp(3.2rem, 6vw, 5.5rem);
+  font-size: clamp(3.8rem, 6vw, 6.4rem);
   font-weight: 900;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
   line-height: 1.05;
 }
 
 .hero h1 span {
-  color: var(--accent);
+  color: var(--gold);
 }
 
 .hero p {
-  margin-top: 28px;
+  margin-top: 32px;
   max-width: 640px;
   font-size: 18px;
-  color: var(--text-muted);
+  color: #dddddd;
 }
 
-/* =========================
-   GRID SYSTEMS
-========================= */
+/* -------------------- SECTIONS -------------------- */
+.section {
+  padding: 130px 0;
+}
+
+.section h2 {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 36px;
+}
+
+.section h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.section p {
+  color: var(--gray);
+}
+
+/* -------------------- GRID -------------------- */
 .grid-2 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 56px;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 56px;
 }
 
-/* =========================
-   PANELS & CARDS
-========================= */
+/* -------------------- PANELS -------------------- */
 .panel {
-  padding: 48px;
-  border: 1px solid var(--border-light);
+  padding-left: 36px;
+  border-left: 4px solid var(--light-gray);
 }
 
 .panel.emphasis {
-  background: #fafafa;
-  border-left: 6px solid var(--accent);
+  border-left-color: var(--gold);
 }
 
-.panel h2,
-.card h3 {
-  font-size: 24px;
-  margin-bottom: 16px;
-}
-
-.panel p,
-.card p {
-  color: var(--text-muted);
-}
-
+/* -------------------- CARDS -------------------- */
 .card {
-  padding: 40px;
-  border: 1px solid var(--border-light);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding-top: 28px;
+  border-top: 3px solid var(--light-gray);
 }
 
 .card.accent {
-  border-top: 6px solid var(--accent);
+  border-top-color: var(--gold);
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px rgba(0,0,0,0.06);
-}
-
-/* =========================
-   STATS
-========================= */
+/* -------------------- STATS -------------------- */
 .stats {
-  background: #f8f8f8;
-  padding: 96px 0;
+  background:
+    linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.78)),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee");
+  background-size: cover;
+  background-position: center;
+  padding: 140px 0;
+  color: var(--white);
 }
 
 .stats-grid {
@@ -215,46 +214,40 @@ nav a:hover::after {
 }
 
 .stats strong {
-  font-size: 48px;
-  font-weight: 800;
-  color: var(--accent);
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--gold);
 }
 
 .stats p {
-  margin-top: 8px;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-}
-
-/* =========================
-   TEAM SECTION
-========================= */
-#team h2 {
-  font-size: 36px;
-  font-weight: 800;
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer {
-  background: var(--bg-dark);
-  color: #bbb;
-  text-align: center;
-  padding: 40px 24px;
+  margin-top: 12px;
   font-size: 13px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e0e0e0;
 }
 
-/* =========================
-   REVEAL ANIMATION
-========================= */
+/* -------------------- TEAM -------------------- */
+#team p {
+  max-width: 760px;
+  margin-top: 18px;
+}
+
+/* -------------------- FOOTER -------------------- */
+footer {
+  background: var(--dark);
+  color: #aaaaaa;
+  padding: 56px 24px;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+/* -------------------- REVEAL -------------------- */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  animation: reveal 1s ease forwards;
+  transform: translateY(70px);
+  animation: reveal 1.2s ease forwards;
 }
 
 @keyframes reveal {
@@ -264,21 +257,23 @@ footer {
   }
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* -------------------- RESPONSIVE -------------------- */
 @media (max-width: 900px) {
-  .grid-2,
-  .grid,
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
   nav {
     display: none;
   }
 
+  .grid,
+  .grid-2,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
   .hero h1 {
     font-size: 3rem;
+  }
+
+  .section {
+    padding: 90px 0;
   }
 }
