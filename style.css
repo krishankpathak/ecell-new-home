@@ -752,3 +752,43 @@ nav a {
     transition: none !important;
   }
 }
+/* ============================================================
+   PERFORMANCE OPTIMIZATIONS
+============================================================ */
+
+/* Prevent layout shift */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* GPU acceleration for animated elements */
+.reveal,
+.timeline-item,
+.mosaic-item img,
+.card,
+.panel {
+  will-change: transform, opacity;
+}
+
+/* Contain layout & paint where possible */
+.section,
+.stats,
+.mosaic,
+.timeline {
+  contain: layout paint;
+}
+
+/* Reduce expensive blur on low-end devices */
+@media (max-width: 768px) {
+  .nav {
+    backdrop-filter: none;
+  }
+}
+
+/* Improve text rendering */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
