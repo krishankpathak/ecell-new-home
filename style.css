@@ -1,27 +1,27 @@
 /* ============================================================
    E-CELL FoET | UNIVERSITY OF LUCKNOW
-   PREMIUM ENTREPRENEURSHIP / EDITORIAL THEME
-   Inspired by high-end 99designs personal brands
+   ELITE ENTREPRENEURIAL / EDITORIAL THEME
+   Inspired by award-winning personal brands (99designs)
 ============================================================ */
 
-/* ------------------ VARIABLES ------------------ */
+/* -------------------- VARIABLES -------------------- */
 :root {
-  --black: #0b0b0b;
-  --dark: #111;
+  --black: #0a0a0a;
+  --dark: #111111;
   --white: #ffffff;
 
-  --gray-1: #222;
-  --gray-2: #555;
-  --gray-3: #999;
-  --gray-4: #e5e5e5;
+  --gray-900: #1a1a1a;
+  --gray-700: #4d4d4d;
+  --gray-500: #8c8c8c;
+  --gray-200: #e6e6e6;
 
-  --accent: #f5c542;      /* gold */
-  --accent-dark: #d4a41f;
+  --gold: #f2c94c;
+  --gold-dark: #d4a41f;
 
   --max-width: 1180px;
 }
 
-/* ------------------ RESET ------------------ */
+/* -------------------- RESET -------------------- */
 *,
 *::before,
 *::after {
@@ -37,23 +37,23 @@ body {
   font-family: "Inter", sans-serif;
   background: var(--white);
   color: var(--black);
-  line-height: 1.85;
+  line-height: 1.9;
 }
 
-/* ------------------ CONTAINER ------------------ */
+/* -------------------- CONTAINER -------------------- */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 28px;
 }
 
-/* ------------------ NAVBAR ------------------ */
+/* -------------------- NAVBAR -------------------- */
 .nav {
   position: fixed;
   inset: 0 0 auto 0;
-  height: 82px;
-  background: rgba(255,255,255,0.97);
-  border-bottom: 1px solid var(--gray-4);
+  height: 84px;
+  background: rgba(255,255,255,0.98);
+  border-bottom: 1px solid var(--gray-200);
   z-index: 1000;
 }
 
@@ -71,26 +71,26 @@ body {
 }
 
 .logo-img {
-  height: 48px;
+  height: 50px;
 }
 
 .brand-text strong {
   display: block;
   font-size: 14px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
 .brand-text span {
   font-size: 11px;
-  letter-spacing: 0.12em;
-  color: var(--gray-3);
+  letter-spacing: 0.14em;
+  color: var(--gray-500);
 }
 
 nav a {
-  margin-left: 40px;
+  margin-left: 42px;
   font-size: 12px;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--black);
@@ -101,10 +101,10 @@ nav a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -12px;
+  bottom: -14px;
   width: 0;
   height: 2px;
-  background: var(--accent);
+  background: var(--gold);
   transition: width .35s ease;
 }
 
@@ -112,48 +112,71 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* ------------------ HERO ------------------ */
+/* -------------------- HERO -------------------- */
 .hero {
   min-height: 100vh;
-  padding-top: 82px;
+  padding-top: 84px;
   display: flex;
   align-items: center;
   background:
-    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-    url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab");
+    linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.78)),
+    url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d");
   background-size: cover;
   background-position: center;
   color: var(--white);
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 80px;
+  background: var(--gold);
+  opacity: 0.8;
 }
 
 .hero h1 {
-  font-size: clamp(3.8rem, 6vw, 6.6rem);
+  font-size: clamp(4rem, 6vw, 6.8rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
 }
 
 .hero h1 span {
-  color: var(--accent);
+  color: var(--gold);
 }
 
 .hero p {
-  margin-top: 32px;
+  margin-top: 36px;
   max-width: 640px;
   font-size: 18px;
-  color: #dddddd;
+  color: #dedede;
 }
 
-/* ------------------ SECTIONS ------------------ */
+/* -------------------- SECTION BASE -------------------- */
 .section {
-  padding: 140px 0;
+  padding: 150px 0;
 }
 
 .section h2 {
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 42px;
+  letter-spacing: -0.025em;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section h2::after {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 4px;
+  background: var(--gold);
+  margin-top: 18px;
 }
 
 .section h3 {
@@ -163,50 +186,50 @@ nav a:hover::after {
 }
 
 .section p {
-  color: var(--gray-2);
+  color: var(--gray-700);
 }
 
-/* ------------------ GRIDS ------------------ */
+/* -------------------- GRID SYSTEM -------------------- */
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 100px;
+  gap: 110px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
+  gap: 64px;
 }
 
-/* ------------------ PANELS ------------------ */
+/* -------------------- PANELS -------------------- */
 .panel {
-  padding-left: 40px;
-  border-left: 4px solid var(--gray-4);
+  padding-left: 44px;
+  border-left: 4px solid var(--gray-200);
 }
 
 .panel.emphasis {
-  border-left-color: var(--accent);
+  border-left-color: var(--gold);
 }
 
-/* ------------------ CARDS ------------------ */
+/* -------------------- CARDS -------------------- */
 .card {
-  padding-top: 32px;
-  border-top: 3px solid var(--gray-4);
+  padding-top: 36px;
+  border-top: 3px solid var(--gray-200);
 }
 
 .card.accent {
-  border-top-color: var(--accent);
+  border-top-color: var(--gold);
 }
 
-/* ------------------ STATS ------------------ */
+/* -------------------- STATS / IMPACT -------------------- */
 .stats {
   background:
-    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+    linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.88)),
     url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee");
   background-size: cover;
   background-position: center;
-  padding: 160px 0;
+  padding: 170px 0;
   color: var(--white);
 }
 
@@ -217,40 +240,40 @@ nav a:hover::after {
 }
 
 .stats strong {
-  font-size: 60px;
+  font-size: 64px;
   font-weight: 900;
-  color: var(--accent);
+  color: var(--gold);
 }
 
 .stats p {
-  margin-top: 14px;
+  margin-top: 16px;
   font-size: 13px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #dddddd;
+  color: #e0e0e0;
 }
 
-/* ------------------ TEAM ------------------ */
+/* -------------------- TEAM -------------------- */
 #team p {
-  max-width: 760px;
-  margin-top: 20px;
+  max-width: 780px;
+  margin-top: 22px;
 }
 
-/* ------------------ FOOTER ------------------ */
+/* -------------------- FOOTER -------------------- */
 footer {
   background: var(--dark);
-  color: #bdbdbd;
-  padding: 60px 24px;
+  color: #bfbfbf;
+  padding: 64px 24px;
   text-align: center;
   font-size: 13px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 }
 
-/* ------------------ REVEAL ------------------ */
+/* -------------------- REVEAL ANIMATION -------------------- */
 .reveal {
   opacity: 0;
-  transform: translateY(80px);
-  animation: reveal 1.2s ease forwards;
+  transform: translateY(90px);
+  animation: reveal 1.3s cubic-bezier(.22,.61,.36,1) forwards;
 }
 
 @keyframes reveal {
@@ -260,7 +283,7 @@ footer {
   }
 }
 
-/* ------------------ RESPONSIVE ------------------ */
+/* -------------------- RESPONSIVE -------------------- */
 @media (max-width: 900px) {
   nav {
     display: none;
@@ -273,10 +296,10 @@ footer {
   }
 
   .hero h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
   }
 
   .section {
-    padding: 90px 0;
+    padding: 100px 0;
   }
 }
