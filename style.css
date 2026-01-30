@@ -1,7 +1,80 @@
-.logo-img {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
+/* =========================
+   ROOT DESIGN TOKENS
+========================= */
+:root {
+  --bg-main: #0b0f1a;
+  --bg-soft: #11162a;
+  --panel-bg: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.12);
+
+  --text-main: #f1f5f9;
+  --text-muted: #9aa4b2;
+
+  --accent-primary: #7c7cff;
+  --accent-secondary: #38bdf8;
+
+  --radius-lg: 20px;
+  --radius-md: 14px;
+
+  --blur: blur(18px);
+}
+
+/* =========================
+   RESET & BASE
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(1000px 500px at 15% -10%, #1a1f3b, transparent 60%),
+    radial-gradient(900px 500px at 85% 10%, #102a44, transparent 55%),
+    var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.65;
+}
+
+/* =========================
+   LAYOUT UTILITIES
+========================= */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 28px;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(11, 15, 26, 0.75);
+  backdrop-filter: var(--blur);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .brand {
@@ -10,20 +83,80 @@
   gap: 14px;
 }
 
+.logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
 .brand-text {
   display: flex;
   flex-direction: column;
-  font-size: 13px;
   line-height: 1.2;
-  color: var(--text-muted);
 }
 
 .brand-text strong {
   font-size: 15px;
+  font-weight: 800;
+}
+
+.brand-text span {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+nav a {
+  margin-left: 28px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+nav a:hover {
   color: var(--text-main);
 }
 
-.hero span {
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  transition: width 0.25s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  min-height: 100vh;
+  padding-top: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 78px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.hero h1 span {
   background: linear-gradient(
     135deg,
     var(--accent-primary),
@@ -33,7 +166,185 @@
   color: transparent;
 }
 
-.muted {
+.hero p {
+  margin-top: 28px;
+  max-width: 620px;
+  font-size: 18px;
   color: var(--text-muted);
-  margin-top: 12px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+.section {
+  padding: 140px 0;
+}
+
+.section h2 {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.section h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.section p {
+  color: var(--text-muted);
+}
+
+/* =========================
+   GRID SYSTEMS
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 48px;
+  margin-top: 56px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 56px;
+}
+
+/* =========================
+   PANELS & CARDS
+========================= */
+.panel,
+.card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.10),
+      rgba(255,255,255,0.03)
+    );
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  backdrop-filter: var(--blur);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 40px 80px rgba(0,0,0,0.45);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.panel:hover,
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    0 60px 120px rgba(0,0,0,0.65);
+}
+
+.panel.emphasis,
+.card.accent {
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(124,124,255,0.35),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.12),
+      rgba(255,255,255,0.04)
+    );
+}
+
+/* =========================
+   STATS / IMPACT
+========================= */
+.stats {
+  padding: 120px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.01)
+    );
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 56px;
+  text-align: center;
+}
+
+.stats strong {
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.stats p {
+  margin-top: 10px;
+  color: var(--text-muted);
+}
+
+/* =========================
+   TEAM
+========================= */
+#team p {
+  max-width: 640px;
+  margin-top: 14px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  padding: 48px 24px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  background: rgba(0,0,0,0.35);
+  border-top: 1px solid var(--border);
+}
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.9s cubic-bezier(.22,.61,.36,1);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  nav a {
+    margin-left: 18px;
+  }
+
+  .hero {
+    padding-top: 120px;
+  }
+
+  .section {
+    padding: 100px 0;
+  }
 }
