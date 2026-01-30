@@ -1,279 +1,29 @@
-/* =========================
-   DESIGN TOKENS (SYSTEM)
-========================= */
-:root {
-  --bg-main: #0b0f1a;
-  --bg-soft: #11162a;
-  --panel: rgba(255, 255, 255, 0.06);
-  --border: rgba(255, 255, 255, 0.12);
-
-  --text-main: #f1f5f9;
-  --text-muted: #9aa4b2;
-
-  --accent-primary: #7c7cff;
-  --accent-secondary: #38bdf8;
-
-  --radius-lg: 20px;
-  --radius-md: 14px;
-
-  --blur: blur(18px);
-}
-
-/* =========================
-   RESET
-========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background:
-    radial-gradient(1200px 600px at 20% -10%, #1a1f3b, transparent 60%),
-    radial-gradient(900px 500px at 90% 10%, #102a44, transparent 55%),
-    var(--bg-main);
-  color: var(--text-main);
-  line-height: 1.65;
-  overflow-x: hidden;
-}
-
-/* =========================
-   LAYOUT HELPERS
-========================= */
-.container,
-.wrap {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 28px;
-}
-
-main {
-  position: relative;
-  z-index: 1;
-}
-
-/* =========================
-   NAVBAR
-========================= */
-header,
-.nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 50;
-  background: rgba(11, 15, 26, 0.7);
-  backdrop-filter: var(--blur);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-inner {
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
 }
 
 .brand {
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
-nav a {
-  margin-left: 28px;
-  font-size: 14px;
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  line-height: 1.2;
   color: var(--text-muted);
-  text-decoration: none;
-  position: relative;
-  transition: color 0.25s ease;
 }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    var(--accent-primary),
-    var(--accent-secondary)
-  );
-  transition: width 0.25s ease;
-}
-
-nav a:hover {
+.brand-text strong {
+  font-size: 15px;
   color: var(--text-main);
 }
 
-nav a:hover::after {
-  width: 100%;
-}
-
-/* =========================
-   HERO SECTION
-========================= */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: 120px;
-}
-
-.hero h1 {
-  font-size: clamp(42px, 6vw, 76px);
-  font-weight: 900;
-  letter-spacing: -0.035em;
-  line-height: 1.05;
-  background: linear-gradient(
-    135deg,
-    #ffffff,
-    #c7d2fe
-  );
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.hero p {
-  margin-top: 28px;
-  max-width: 560px;
-  font-size: 18px;
-  color: var(--text-muted);
-}
-
-/* =========================
-   SECTIONS
-========================= */
-.section {
-  padding: 140px 0;
-}
-
-.section h2 {
-  font-size: 36px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
-
-.section h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-
-.section p {
-  color: var(--text-muted);
-}
-
-/* =========================
-   GRID / CARDS
-========================= */
-.grid,
-.grid-2 {
-  display: grid;
-  gap: 56px;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-}
-
-.card,
-.panel {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.09),
-      rgba(255, 255, 255, 0.02)
-    );
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 48px;
-  backdrop-filter: var(--blur);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.12),
-    0 40px 90px rgba(0,0,0,0.45);
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
-}
-
-.card:hover,
-.panel:hover {
-  transform: translateY(-10px);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.16),
-    0 60px 120px rgba(0,0,0,0.6);
-}
-
-.card.accent,
-.panel.emphasis {
-  background:
-    radial-gradient(
-      circle at top,
-      rgba(124,124,255,0.35),
-      transparent 60%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.12),
-      rgba(255,255,255,0.04)
-    );
-}
-
-/* =========================
-   VALUES / TAGS
-========================= */
-.values,
-.principles {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-  margin-top: 36px;
-}
-
-.values span,
-.principles span {
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid var(--border);
-  backdrop-filter: var(--blur);
-}
-
-/* =========================
-   STATS / METRICS
-========================= */
-.stats,
-.metrics {
-  padding: 120px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.04),
-      rgba(255,255,255,0.01)
-    );
-}
-
-.stats-grid,
-.metrics-grid {
-  display: grid;
-  gap: 56px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-.stats strong,
-.metrics strong {
-  font-size: 56px;
-  font-weight: 900;
-  letter-spacing: -0.02em;
+.hero span {
   background: linear-gradient(
     135deg,
     var(--accent-primary),
@@ -283,51 +33,7 @@ nav a:hover::after {
   color: transparent;
 }
 
-.stats p,
-.metrics p {
-  margin-top: 8px;
+.muted {
   color: var(--text-muted);
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer {
-  padding: 48px 24px;
-  text-align: center;
-  font-size: 14px;
-  color: var(--text-muted);
-  background: rgba(0,0,0,0.3);
-  border-top: 1px solid var(--border);
-}
-
-/* =========================
-   REVEAL ANIMATION (OPTIONAL)
-========================= */
-.reveal {
-  opacity: 0;
-  transform: translateY(36px);
-  transition: 0.9s cubic-bezier(.22,.61,.36,1);
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: none;
-}
-
-/* =========================
-   RESPONSIVE POLISH
-========================= */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 42px;
-  }
-
-  .section {
-    padding: 100px 0;
-  }
-
-  nav a {
-    margin-left: 18px;
-  }
+  margin-top: 12px;
 }

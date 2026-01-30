@@ -1,95 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-  <!-- =====================================================
-       BASIC DOCUMENT METADATA
-  ====================================================== -->
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- =====================================================
-       PRIMARY SEO METADATA
-  ====================================================== -->
-  <title>E-Cell | University of Lucknow</title>
+  <title>E-Cell FoET | University of Lucknow</title>
+
   <meta name="description"
-        content="Entrepreneurship Cell, University of Lucknow — empowering students through innovation, startups, mentorship, and entrepreneurial excellence." />
-  <meta name="keywords"
-        content="E-Cell Lucknow University, entrepreneurship, startups, innovation, student founders, incubation" />
-  <meta name="author" content="Entrepreneurship Cell, University of Lucknow" />
+    content="Entrepreneurship Cell, Faculty of Engineering & Technology, University of Lucknow — fostering innovation, startups, leadership, and impact." />
 
-  <!-- =====================================================
-       SEARCH ENGINE / ROBOT DIRECTIVES
-  ====================================================== -->
-  <meta name="robots" content="index, follow" />
-
-  <!-- =====================================================
-       SOCIAL MEDIA / OPEN GRAPH
-  ====================================================== -->
-  <meta property="og:title" content="E-Cell | University of Lucknow" />
-  <meta property="og:description"
-        content="Building the next generation of entrepreneurs at the University of Lucknow." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ecell.lkouniv.ac.in" />
-  <meta property="og:image" content="/assets/og-image.png" />
-
-  <!-- =====================================================
-       TWITTER CARD
-  ====================================================== -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="E-Cell | University of Lucknow" />
-  <meta name="twitter:description"
-        content="Empowering student entrepreneurs through innovation and leadership." />
-
-  <!-- =====================================================
-       PERFORMANCE OPTIMIZATION: FONTS
-  ====================================================== -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
-  <!-- =====================================================
-       SITE ICONS / BRANDING
-  ====================================================== -->
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-  <!-- =====================================================
-       PRIMARY STYLESHEET
-  ====================================================== -->
-  <link rel="stylesheet" href="styles.css" />
-
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- =====================================================
-       ACCESSIBILITY: SKIP LINK
-  ====================================================== -->
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <!-- ================= NAVBAR ================= -->
+  <header class="nav">
+    <div class="container nav-inner">
 
-  <!-- =====================================================
-       HEADER / NAVIGATION
-  ====================================================== -->
-  <header class="navbar" role="banner">
-    <div class="nav-container">
-
-      <!-- BRAND / LOGO -->
-      <div class="brand" aria-label="E-Cell University of Lucknow">
-        <span class="logo">E-Cell</span>
-        <span class="divider" aria-hidden="true"></span>
-        <span class="logo muted">University of Lucknow</span>
+      <div class="brand">
+        <img src="assets/logo.png" alt="E-Cell FoET Logo" class="logo-img" />
+        <div class="brand-text">
+          <strong>E-Cell FoET</strong>
+          <span>University of Lucknow</span>
+        </div>
       </div>
 
-      <!-- PRIMARY NAVIGATION -->
-      <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
-        <a href="#home">Home</a>
+      <nav>
         <a href="#about">About</a>
         <a href="#mission">Mission</a>
-        <a href="#events">Events</a>
+        <a href="#initiatives">Initiatives</a>
+        <a href="#impact">Impact</a>
         <a href="#team">Team</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -97,104 +46,151 @@
     </div>
   </header>
 
-  <!-- =====================================================
-       MAIN CONTENT
-  ====================================================== -->
-  <main id="main-content" role="main">
+  <!-- ================= HERO ================= -->
+  <main>
 
-    <!-- =====================================================
-         HERO SECTION
-    ====================================================== -->
-    <section id="mission" class="section hero reveal" aria-labelledby="hero-heading">
+    <section class="hero container reveal">
+      <h1>
+        Building <br />
+        <span>Entrepreneurs</span> <br />
+        of Tomorrow
+      </h1>
 
-      <header class="section-header">
-        <h1 id="hero-heading">Our Mission & Vision</h1>
-        <p class="subtitle">
-          Driven by purpose, guided by values, committed to building
-          the next generation of entrepreneurs.
-        </p>
-      </header>
+      <p>
+        The Entrepreneurship Cell of Faculty of Engineering & Technology,
+        University of Lucknow — empowering students to innovate, build,
+        and lead impactful ventures.
+      </p>
+    </section>
 
-      <div class="card-row">
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="section container reveal">
+      <div class="grid-2">
 
-        <!-- MISSION CARD -->
-        <article class="card" aria-labelledby="mission-title">
-          <h2 id="mission-title">Mission</h2>
+        <div class="panel">
+          <h2>Who We Are</h2>
           <p>
-            To nurture entrepreneurial talent by providing mentorship,
-            resources, and opportunities that convert ideas into
-            real-world ventures.
+            E-Cell FoET is a student-driven initiative working under
+            the Faculty of Engineering & Technology, University of Lucknow.
+            We aim to cultivate entrepreneurial thinking, practical problem
+            solving, and startup readiness among engineering students.
+          </p>
+        </div>
+
+        <div class="panel emphasis">
+          <h2>What We Do</h2>
+          <p>
+            From ideation bootcamps and startup talks to hands-on workshops,
+            industry mentorship, and innovation challenges — we bridge
+            the gap between classrooms and the startup ecosystem.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= MISSION / VISION ================= -->
+    <section id="mission" class="section container reveal">
+      <div class="grid-2">
+
+        <article class="card">
+          <h3>Our Mission</h3>
+          <p>
+            To nurture entrepreneurial talent by providing the right
+            environment, mentorship, and exposure that transforms ideas
+            into scalable real-world ventures.
           </p>
         </article>
 
-        <!-- VISION CARD -->
-        <article class="card accent" aria-labelledby="vision-title">
-          <h2 id="vision-title">Vision</h2>
+        <article class="card accent">
+          <h3>Our Vision</h3>
           <p>
-            To become a nationally recognized entrepreneurship hub
-            empowering students to become job creators.
+            To establish FoET, University of Lucknow as a recognized hub
+            of innovation and entrepreneurship producing job creators,
+            not just job seekers.
           </p>
         </article>
 
       </div>
     </section>
 
-    <!-- =====================================================
-         CORE VALUES SECTION
-    ====================================================== -->
-    <section id="values" class="section values reveal" aria-labelledby="values-heading">
-      <h2 id="values-heading" class="section-title">Our Core Values</h2>
+    <!-- ================= INITIATIVES ================= -->
+    <section id="initiatives" class="section container reveal">
+      <h2>Key Initiatives</h2>
 
-      <div class="value-grid" role="list">
-        <div class="value" role="listitem">Innovation</div>
-        <div class="value" role="listitem">Collaboration</div>
-        <div class="value" role="listitem">Social Impact</div>
-        <div class="value" role="listitem">Excellence</div>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Startup Bootcamps</h3>
+          <p>
+            Intensive programs focused on ideation, validation,
+            business models, and pitching.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Founder Talks</h3>
+          <p>
+            Sessions with startup founders, investors, and industry
+            professionals sharing real-world insights.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Innovation Challenges</h3>
+          <p>
+            Hackathons and problem-solving competitions addressing
+            real societal and industrial problems.
+          </p>
+        </div>
+
       </div>
     </section>
 
-    <!-- =====================================================
-         GOALS / IMPACT METRICS
-    ====================================================== -->
-    <section id="goals" class="section goals reveal" aria-labelledby="goals-heading">
-      <h2 id="goals-heading" class="visually-hidden">Impact Metrics</h2>
+    <!-- ================= IMPACT ================= -->
+    <section id="impact" class="stats reveal">
+      <div class="container stats-grid">
 
-      <div class="goal">
-        <span class="number" data-target="500" aria-label="500 students empowered">0</span>
-        <p>Students Empowered</p>
-      </div>
+        <div>
+          <strong data-count="600">0</strong>
+          <p>Students Impacted</p>
+        </div>
 
-      <div class="goal">
-        <span class="number" data-target="50" aria-label="50 startups incubated">0</span>
-        <p>Startups Incubated</p>
-      </div>
+        <div>
+          <strong data-count="60">0</strong>
+          <p>Startups & Ideas Incubated</p>
+        </div>
 
-      <div class="goal">
-        <span class="number" data-target="100" aria-label="100 events organized">0</span>
-        <p>Events Organized</p>
+        <div>
+          <strong data-count="120">0</strong>
+          <p>Events & Sessions Conducted</p>
+        </div>
+
+        <div>
+          <strong data-count="25">0</strong>
+          <p>Industry Collaborations</p>
+        </div>
+
       </div>
+    </section>
+
+    <!-- ================= TEAM ================= -->
+    <section id="team" class="section container reveal">
+      <h2>Our Team</h2>
+      <p class="muted">
+        A passionate group of student leaders, innovators, and
+        problem solvers from FoET.
+      </p>
     </section>
 
   </main>
 
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-  <footer class="footer" role="contentinfo">
-    <p>© 2026 Entrepreneurship Cell, University of Lucknow</p>
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    © 2026 Entrepreneurship Cell, Faculty of Engineering & Technology,
+    University of Lucknow
   </footer>
 
-  <!-- =====================================================
-       JAVASCRIPT
-  ====================================================== -->
-  <script src="script.js" defer></script>
-
-  <!-- =====================================================
-       NOSCRIPT FALLBACK
-  ====================================================== -->
-  <noscript>
-    <p>This website requires JavaScript to function properly.</p>
-  </noscript>
-
+  <script src="script.js"></script>
 </body>
 </html>
