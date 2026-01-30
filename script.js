@@ -1,37 +1,44 @@
-const counters = document.querySelectorAll("[data-count]");
+// ================= THEME TOGGLE =================
+const toggle = document.getElementById("themeToggle");
+const root = document.documentElement;
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
+toggle.addEventListener("click", () => {
+  const theme = root.getAttribute("data-theme");
+  root.setAttribute("data-theme", theme === "light" ? "dark" : "light");
+  toggle.textContent = theme === "light" ? "☾" : "☀︎";
+});
 
-    const el = entry.target;
-    const target = +el.dataset.count;
-    let current = 0;
-    const step = Math.max(1, Math.floor(target / 120));
+// ================= REVEAL ON SCROLL =================
+const reveals = document.querySelectorAll(".reveal");
 
-    const update = () => {
-      current += step;
-      if (current < target) {
-        el.textContent = current;
-        requestAnimationFrame(update);
-      } else {
-        el.textContent = target;
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
       }
-    };
+    });
+  },
+  { threshold: 0.15 }
+);
 
-    update();
-    observer.unobserve(el);
-  });
-}, { threshold: 0.6 });
+reveals.forEach(el => observer.observe(el));
 
-counters.forEach(c => observer.observe(c));
+// ================= COUNT UP =================
+document.querySelectorAll("[data-count]").forEach(el => {
+  const target = +el.dataset.count;
+  let value = 0;
+  const step = Math.ceil(target / 120);
 
-/* Reveal animation */
-document.querySelectorAll(".reveal").forEach(el => {
-  new IntersectionObserver(([e], obs) => {
-    if (e.isIntersecting) {
-      e.target.classList.add("show");
-      obs.disconnect();
+  const tick = () => {
+    value += step;
+    if (value < target) {
+      el.textContent = value;
+      requestAnimationFrame(tick);
+    } else {
+      el.textContent = target;
     }
-  }, { threshold: 0.15 }).observe(el);
+  };
+
+  tick();
 });

@@ -1,243 +1,373 @@
-/* ======================================================
-   GLOBAL DESIGN TOKENS (ADVANCED)
-====================================================== */
+/* =========================================================
+   E-CELL FOET — INSTITUTIONAL DESIGN SYSTEM
+   Version: 1.0 (Production Grade)
+========================================================= */
+
+/* ===================== ROOT TOKENS ===================== */
 :root {
-  --blue-main: #2563eb;
-  --violet-main: #7c3aed;
-  --cyan-main: #06b6d4;
-  --emerald-main: #10b981;
-  --pink-main: #ec4899;
-  --amber-main: #f59e0b;
+  /* ---------- SURFACES ---------- */
+  --bg-main: #060814;
+  --bg-layer-1: #0b1026;
+  --bg-layer-2: #11183c;
+  --glass: rgba(255, 255, 255, 0.08);
 
-  --dark-bg: #020617;
-  --dark-panel: rgba(15, 23, 42, 0.75);
-  --dark-border: rgba(148, 163, 184, 0.15);
+  /* ---------- TEXT ---------- */
+  --text-main: #f8fafc;
+  --text-soft: #dbeafe;
+  --text-muted: #94a3b8;
 
-  --light-bg: #f8fafc;
-  --light-panel: rgba(255, 255, 255, 0.85);
-  --light-border: rgba(2, 6, 23, 0.12);
+  /* ---------- BRAND COLORS ---------- */
+  --indigo: #6366f1;
+  --violet: #8b5cf6;
+  --cyan: #22d3ee;
+  --emerald: #34d399;
+  --amber: #fbbf24;
+  --rose: #fb7185;
 
-  --glass-blur: blur(18px);
-
-  --gradient-primary: linear-gradient(
+  /* ---------- GRADIENTS ---------- */
+  --gradient-brand: linear-gradient(
     135deg,
-    var(--blue-main),
-    var(--violet-main),
-    var(--cyan-main)
+    var(--indigo),
+    var(--violet),
+    var(--cyan)
   );
 
-  --gradient-accent: linear-gradient(
-    135deg,
-    var(--emerald-main),
-    var(--cyan-main)
+  --gradient-hero:
+    radial-gradient(1200px 600px at 10% -15%, rgba(99,102,241,0.45), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(34,211,238,0.45), transparent 55%),
+    radial-gradient(800px 450px at 50% 120%, rgba(251,191,36,0.35), transparent 65%);
+
+  --gradient-card: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.20),
+    rgba(255,255,255,0.04)
   );
 
-  --gradient-warm: linear-gradient(
-    135deg,
-    var(--amber-main),
-    var(--pink-main)
-  );
+  /* ---------- EFFECTS ---------- */
+  --border: rgba(255,255,255,0.14);
+  --shadow-soft: 0 25px 60px rgba(0,0,0,0.55);
+  --shadow-hard: 0 80px 180px rgba(0,0,0,0.85);
+  --glow-brand: 0 0 40px rgba(99,102,241,0.45);
+
+  /* ---------- RADIUS ---------- */
+  --radius-xl: 32px;
+  --radius-lg: 22px;
+  --radius-md: 14px;
+
+  --blur: blur(26px);
 }
 
-/* ======================================================
-   BASE RESET & TYPOGRAPHY
-====================================================== */
-* {
-  font-family: 'Inter', system-ui, sans-serif;
+/* ===================== LIGHT THEME ===================== */
+[data-theme="light"] {
+  --bg-main: #f8fafc;
+  --bg-layer-1: #ffffff;
+  --bg-layer-2: #eef2ff;
+  --glass: rgba(0,0,0,0.05);
+
+  --text-main: #020617;
+  --text-soft: #1e293b;
+  --text-muted: #475569;
+
+  --border: rgba(0,0,0,0.12);
+  --shadow-soft: 0 20px 45px rgba(0,0,0,0.15);
+  --shadow-hard: 0 45px 100px rgba(0,0,0,0.25);
+  --glow-brand: 0 0 30px rgba(99,102,241,0.30);
 }
 
-.heading-font {
-  font-family: 'Poppins', sans-serif;
+/* ===================== RESET ===================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+/* ===================== BODY ===================== */
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background:
+    var(--gradient-hero),
+    linear-gradient(180deg, var(--bg-layer-1), var(--bg-layer-2)),
+    var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.8;
+  overflow-x: hidden;
+  transition: background 0.6s ease, color 0.4s ease;
+}
+
+/* ===================== CONTAINER ===================== */
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 28px;
+}
+
+/* ===================== NAVBAR ===================== */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 80px;
+  z-index: 100;
+  background: linear-gradient(
+    180deg,
+    rgba(6,8,20,0.88),
+    rgba(6,8,20,0.68)
+  );
+  backdrop-filter: var(--blur);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,0.7));
+}
+
+.brand-text strong {
+  font-weight: 900;
+  font-size: 15px;
   letter-spacing: -0.02em;
 }
 
-body {
-  background:
-    radial-gradient(900px 600px at 10% -10%, rgba(37,99,235,0.25), transparent 60%),
-    radial-gradient(800px 500px at 90% 10%, rgba(124,58,237,0.25), transparent 55%),
-    var(--dark-bg);
-  color: #f8fafc;
-  transition: background 0.5s ease, color 0.3s ease;
+.brand-text span {
+  font-size: 13px;
+  color: var(--text-muted);
 }
 
-/* ======================================================
-   GLASS PANELS (CARDS / NAV / MODALS)
-====================================================== */
-.card-bg,
-.bg-slate-800\/50,
-.modal-content {
-  background: var(--dark-panel) !important;
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--dark-border);
-  box-shadow:
-    0 20px 40px rgba(0,0,0,0.35),
-    inset 0 1px 0 rgba(255,255,255,0.08);
+nav {
+  display: flex;
+  align-items: center;
 }
 
-/* ======================================================
-   NAVBAR UPGRADE
-====================================================== */
-#navbar {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(2,6,23,0.85),
-      rgba(2,6,23,0.65)
-    );
-  backdrop-filter: blur(20px);
-}
-
-.nav-link {
+nav a {
+  margin-left: 32px;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.nav-link::after {
-  background: var(--gradient-primary);
-  height: 3px;
-  border-radius: 999px;
-}
-
-/* ======================================================
-   GRADIENT TEXT (STRONGER)
-====================================================== */
-.gradient-text {
-  background: linear-gradient(
-    135deg,
-    #60a5fa,
-    #a78bfa,
-    #22d3ee
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 18px rgba(99,102,241,0.45));
-}
-
-/* ======================================================
-   HERO ENHANCEMENT
-====================================================== */
-header h1 {
-  text-shadow:
-    0 10px 40px rgba(37,99,235,0.35),
-    0 0 20px rgba(124,58,237,0.25);
-}
-
-/* ======================================================
-   CARD HOVER (PREMIUM DEPTH)
-====================================================== */
-.card-hover {
-  transition: all 0.45s cubic-bezier(.22,.61,.36,1);
-}
-
-.card-hover:hover {
-  transform: translateY(-14px) scale(1.03);
-  box-shadow:
-    0 40px 90px rgba(0,0,0,0.6),
-    0 0 40px rgba(99,102,241,0.35);
-}
-
-/* ======================================================
-   BUTTONS (ENTERPRISE GRADE)
-====================================================== */
-button,
-a[role="button"] {
+  color: var(--text-soft);
+  text-decoration: none;
   position: relative;
-  overflow: hidden;
 }
 
-button::before {
+nav a::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: var(--gradient-primary);
-  opacity: 0;
-  transition: 0.35s ease;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--gradient-brand);
+  transition: width 0.35s ease;
 }
 
-button:hover::before {
-  opacity: 0.15;
+nav a:hover::after { width: 100%; }
+
+/* ===================== HERO ===================== */
+.hero {
+  min-height: 100vh;
+  padding-top: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* ======================================================
-   PHOTO CAROUSEL POLISH
-====================================================== */
-.photo-item {
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow:
-    0 18px 40px rgba(0,0,0,0.45);
+.hero h1 {
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 1.02;
 }
 
-.photo-item img {
-  transition: transform 0.6s ease;
+.hero h1 span {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 28px rgba(99,102,241,0.55));
 }
 
-.photo-item:hover img {
-  transform: scale(1.12);
+.hero p {
+  margin-top: 36px;
+  max-width: 720px;
+  font-size: 20px;
+  color: var(--text-soft);
 }
 
-/* ======================================================
-   STATS / METRICS GLOW
-====================================================== */
-.gradient-text,
-.text-4xl.font-bold {
-  text-shadow:
-    0 0 20px rgba(34,211,238,0.35);
+/* ===================== SECTIONS ===================== */
+.section {
+  padding: 170px 0;
+  position: relative;
 }
 
-/* ======================================================
-   LIGHT MODE — CLEAN & ACADEMIC
-====================================================== */
-body.light-mode {
+.section::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--indigo),
+    transparent
+  );
+  opacity: 0.35;
+}
+
+.section h2 {
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.section h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.section p {
+  color: var(--text-soft);
+}
+
+/* ===================== GRIDS ===================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 64px;
+  margin-top: 64px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px,1fr));
+  gap: 72px;
+}
+
+/* ===================== CARDS ===================== */
+.card,
+.panel {
+  position: relative;
+  padding: 60px;
+  border-radius: var(--radius-xl);
   background:
-    radial-gradient(900px 600px at 10% -10%, rgba(37,99,235,0.15), transparent 60%),
-    radial-gradient(800px 500px at 90% 10%, rgba(124,58,237,0.15), transparent 55%),
-    var(--light-bg);
-  color: #020617;
+    radial-gradient(circle at top,
+      rgba(99,102,241,0.45),
+      transparent 60%
+    ),
+    var(--gradient-card);
+  border: 1px solid var(--border);
+  backdrop-filter: var(--blur);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.55s ease, box-shadow 0.55s ease;
 }
 
-body.light-mode .card-bg,
-body.light-mode .bg-slate-800\/50,
-body.light-mode .modal-content {
-  background: var(--light-panel) !important;
-  border: 1px solid var(--light-border);
-  box-shadow:
-    0 18px 40px rgba(0,0,0,0.12);
+.card:hover,
+.panel:hover {
+  transform: translateY(-22px) scale(1.02);
+  box-shadow: var(--shadow-hard), var(--glow-brand);
 }
 
-body.light-mode #navbar {
-  background: rgba(255,255,255,0.95);
-}
-
-body.light-mode .gradient-text {
-  filter: none;
-}
-
-/* ======================================================
-   MODALS (CLEAN + PREMIUM)
-====================================================== */
-.modal-overlay {
+.card.accent,
+.panel.emphasis {
   background:
-    radial-gradient(circle at top, rgba(99,102,241,0.25), transparent 60%),
-    rgba(0,0,0,0.75);
+    radial-gradient(circle at top,
+      rgba(52,211,153,0.45),
+      transparent 65%
+    ),
+    var(--gradient-card);
 }
 
-.modal-content {
-  border-radius: 28px;
-}
-
-/* ======================================================
-   FOOTER FINISH
-====================================================== */
-footer {
+/* ===================== STATS ===================== */
+.stats {
+  padding: 150px 0;
   background:
     linear-gradient(
       180deg,
-      rgba(2,6,23,0.95),
-      rgba(2,6,23,0.85)
+      rgba(255,255,255,0.07),
+      rgba(255,255,255,0.01)
     );
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-body.light-mode footer {
-  background: rgba(255,255,255,0.95);
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 80px;
+  text-align: center;
+}
+
+.stats strong {
+  font-size: 70px;
+  font-weight: 900;
+  background: linear-gradient(
+    135deg,
+    var(--emerald),
+    var(--amber),
+    var(--rose)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 28px rgba(52,211,153,0.45));
+}
+
+.stats p {
+  margin-top: 14px;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+/* ===================== TEAM ===================== */
+.muted {
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  padding: 70px 24px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.35)
+    );
+  border-top: 1px solid var(--border);
+}
+
+/* ===================== REVEAL ===================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 1s cubic-bezier(.22,.61,.36,1);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+  nav a { margin-left: 18px; }
+  .section { padding: 120px 0; }
+  .hero h1 { font-size: 44px; }
 }
