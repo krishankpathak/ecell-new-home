@@ -1,80 +1,17 @@
-/* =========================================================
-   E-CELL FOET — INSTITUTIONAL DESIGN SYSTEM
-   Version: 1.0 (Production Grade)
-========================================================= */
-
-/* ===================== ROOT TOKENS ===================== */
+/* =========================
+   ROOT & RESET
+========================= */
 :root {
-  /* ---------- SURFACES ---------- */
-  --bg-main: #060814;
-  --bg-layer-1: #0b1026;
-  --bg-layer-2: #11183c;
-  --glass: rgba(255, 255, 255, 0.08);
-
-  /* ---------- TEXT ---------- */
-  --text-main: #f8fafc;
-  --text-soft: #dbeafe;
-  --text-muted: #94a3b8;
-
-  /* ---------- BRAND COLORS ---------- */
-  --indigo: #6366f1;
-  --violet: #8b5cf6;
-  --cyan: #22d3ee;
-  --emerald: #34d399;
-  --amber: #fbbf24;
-  --rose: #fb7185;
-
-  /* ---------- GRADIENTS ---------- */
-  --gradient-brand: linear-gradient(
-    135deg,
-    var(--indigo),
-    var(--violet),
-    var(--cyan)
-  );
-
-  --gradient-hero:
-    radial-gradient(1200px 600px at 10% -15%, rgba(99,102,241,0.45), transparent 60%),
-    radial-gradient(900px 500px at 90% 10%, rgba(34,211,238,0.45), transparent 55%),
-    radial-gradient(800px 450px at 50% 120%, rgba(251,191,36,0.35), transparent 65%);
-
-  --gradient-card: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.20),
-    rgba(255,255,255,0.04)
-  );
-
-  /* ---------- EFFECTS ---------- */
-  --border: rgba(255,255,255,0.14);
-  --shadow-soft: 0 25px 60px rgba(0,0,0,0.55);
-  --shadow-hard: 0 80px 180px rgba(0,0,0,0.85);
-  --glow-brand: 0 0 40px rgba(99,102,241,0.45);
-
-  /* ---------- RADIUS ---------- */
-  --radius-xl: 32px;
-  --radius-lg: 22px;
-  --radius-md: 14px;
-
-  --blur: blur(26px);
+  --bg-light: #ffffff;
+  --bg-dark: #111111;
+  --text-dark: #1b1b1b;
+  --text-muted: #6b6b6b;
+  --accent: #f4c430; /* Gold accent */
+  --accent-dark: #d9aa1c;
+  --border-light: #e6e6e6;
+  --max-width: 1200px;
 }
 
-/* ===================== LIGHT THEME ===================== */
-[data-theme="light"] {
-  --bg-main: #f8fafc;
-  --bg-layer-1: #ffffff;
-  --bg-layer-2: #eef2ff;
-  --glass: rgba(0,0,0,0.05);
-
-  --text-main: #020617;
-  --text-soft: #1e293b;
-  --text-muted: #475569;
-
-  --border: rgba(0,0,0,0.12);
-  --shadow-soft: 0 20px 45px rgba(0,0,0,0.15);
-  --shadow-hard: 0 45px 100px rgba(0,0,0,0.25);
-  --glow-brand: 0 0 30px rgba(99,102,241,0.30);
-}
-
-/* ===================== RESET ===================== */
 *,
 *::before,
 *::after {
@@ -83,84 +20,85 @@
   padding: 0;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
-/* ===================== BODY ===================== */
 body {
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
-  background:
-    var(--gradient-hero),
-    linear-gradient(180deg, var(--bg-layer-1), var(--bg-layer-2)),
-    var(--bg-main);
-  color: var(--text-main);
-  line-height: 1.8;
-  overflow-x: hidden;
-  transition: background 0.6s ease, color 0.4s ease;
+  font-family: "Inter", sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.7;
 }
 
-/* ===================== CONTAINER ===================== */
+/* =========================
+   CONTAINER & UTILITIES
+========================= */
 .container {
-  max-width: 1200px;
-  margin-inline: auto;
-  padding-inline: 28px;
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 0 24px;
 }
 
-/* ===================== NAVBAR ===================== */
+.section {
+  padding: 96px 0;
+}
+
+.muted {
+  color: var(--text-muted);
+  max-width: 720px;
+  margin-top: 12px;
+}
+
+/* =========================
+   NAVBAR
+========================= */
 .nav {
   position: fixed;
-  inset: 0 0 auto 0;
-  height: 80px;
-  z-index: 100;
-  background: linear-gradient(
-    180deg,
-    rgba(6,8,20,0.88),
-    rgba(6,8,20,0.68)
-  );
-  backdrop-filter: var(--blur);
-  border-bottom: 1px solid var(--border);
+  top: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-light);
+  z-index: 1000;
 }
 
 .nav-inner {
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 72px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .logo-img {
-  width: 48px;
-  height: 48px;
-  filter: drop-shadow(0 10px 22px rgba(0,0,0,0.7));
+  height: 42px;
+  width: auto;
 }
 
 .brand-text strong {
-  font-weight: 900;
+  display: block;
   font-size: 15px;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.04em;
 }
 
 .brand-text span {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-muted);
-}
-
-nav {
-  display: flex;
-  align-items: center;
 }
 
 nav a {
   margin-left: 32px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-soft);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   text-decoration: none;
+  color: var(--text-dark);
   position: relative;
 }
 
@@ -168,206 +106,179 @@ nav a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -10px;
-  width: 0;
-  height: 3px;
-  border-radius: 999px;
-  background: var(--gradient-brand);
-  transition: width 0.35s ease;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
 }
 
-nav a:hover::after { width: 100%; }
+nav a:hover::after {
+  width: 100%;
+}
 
-/* ===================== HERO ===================== */
+/* =========================
+   HERO
+========================= */
 .hero {
-  min-height: 100vh;
-  padding-top: 170px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 120px;
 }
 
 .hero h1 {
-  font-size: clamp(52px, 7vw, 96px);
+  font-size: clamp(3.2rem, 6vw, 5.5rem);
   font-weight: 900;
-  letter-spacing: -0.055em;
-  line-height: 1.02;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
 .hero h1 span {
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 0 28px rgba(99,102,241,0.55));
+  color: var(--accent);
 }
 
 .hero p {
-  margin-top: 36px;
-  max-width: 720px;
-  font-size: 20px;
-  color: var(--text-soft);
+  margin-top: 28px;
+  max-width: 640px;
+  font-size: 18px;
+  color: var(--text-muted);
 }
 
-/* ===================== SECTIONS ===================== */
-.section {
-  padding: 170px 0;
-  position: relative;
+/* =========================
+   GRID SYSTEMS
+========================= */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 56px;
 }
 
-.section::before {
-  content: "";
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--indigo),
-    transparent
-  );
-  opacity: 0.35;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }
 
-.section h2 {
-  font-size: 44px;
-  font-weight: 900;
-  letter-spacing: -0.03em;
+/* =========================
+   PANELS & CARDS
+========================= */
+.panel {
+  padding: 48px;
+  border: 1px solid var(--border-light);
 }
 
-.section h3 {
-  font-size: 22px;
-  font-weight: 700;
+.panel.emphasis {
+  background: #fafafa;
+  border-left: 6px solid var(--accent);
+}
+
+.panel h2,
+.card h3 {
+  font-size: 24px;
   margin-bottom: 16px;
 }
 
-.section p {
-  color: var(--text-soft);
+.panel p,
+.card p {
+  color: var(--text-muted);
 }
 
-/* ===================== GRIDS ===================== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 64px;
-  margin-top: 64px;
+.card {
+  padding: 40px;
+  border: 1px solid var(--border-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px,1fr));
-  gap: 72px;
+.card.accent {
+  border-top: 6px solid var(--accent);
 }
 
-/* ===================== CARDS ===================== */
-.card,
-.panel {
-  position: relative;
-  padding: 60px;
-  border-radius: var(--radius-xl);
-  background:
-    radial-gradient(circle at top,
-      rgba(99,102,241,0.45),
-      transparent 60%
-    ),
-    var(--gradient-card);
-  border: 1px solid var(--border);
-  backdrop-filter: var(--blur);
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.55s ease, box-shadow 0.55s ease;
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.06);
 }
 
-.card:hover,
-.panel:hover {
-  transform: translateY(-22px) scale(1.02);
-  box-shadow: var(--shadow-hard), var(--glow-brand);
-}
-
-.card.accent,
-.panel.emphasis {
-  background:
-    radial-gradient(circle at top,
-      rgba(52,211,153,0.45),
-      transparent 65%
-    ),
-    var(--gradient-card);
-}
-
-/* ===================== STATS ===================== */
+/* =========================
+   STATS
+========================= */
 .stats {
-  padding: 150px 0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.07),
-      rgba(255,255,255,0.01)
-    );
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  background: #f8f8f8;
+  padding: 96px 0;
 }
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 80px;
+  grid-template-columns: repeat(4, 1fr);
   text-align: center;
 }
 
 .stats strong {
-  font-size: 70px;
-  font-weight: 900;
-  background: linear-gradient(
-    135deg,
-    var(--emerald),
-    var(--amber),
-    var(--rose)
-  );
-  -webkit-background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 0 28px rgba(52,211,153,0.45));
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--accent);
 }
 
 .stats p {
-  margin-top: 14px;
-  font-size: 15px;
-  color: var(--text-muted);
-}
-
-/* ===================== TEAM ===================== */
-.muted {
-  color: var(--text-muted);
-  margin-top: 16px;
-}
-
-/* ===================== FOOTER ===================== */
-footer {
-  padding: 70px 24px;
-  text-align: center;
+  margin-top: 8px;
   font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,0.55),
-      rgba(0,0,0,0.35)
-    );
-  border-top: 1px solid var(--border);
 }
 
-/* ===================== REVEAL ===================== */
+/* =========================
+   TEAM SECTION
+========================= */
+#team h2 {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background: var(--bg-dark);
+  color: #bbb;
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
 .reveal {
   opacity: 0;
-  transform: translateY(60px);
-  transition: 1s cubic-bezier(.22,.61,.36,1);
+  transform: translateY(40px);
+  animation: reveal 1s ease forwards;
 }
 
-.reveal.show {
-  opacity: 1;
-  transform: none;
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* ===================== RESPONSIVE ===================== */
-@media (max-width: 768px) {
-  nav a { margin-left: 18px; }
-  .section { padding: 120px 0; }
-  .hero h1 { font-size: 44px; }
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .grid-2,
+  .grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
 }
