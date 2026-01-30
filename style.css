@@ -1,24 +1,27 @@
 /* ============================================================
    E-CELL FoET | UNIVERSITY OF LUCKNOW
-   PREMIUM ENTREPRENEURSHIP EDITORIAL STYLE
-   (Inspired by high-end 99designs personal brand layouts)
+   PREMIUM ENTREPRENEURSHIP / EDITORIAL THEME
+   Inspired by high-end 99designs personal brands
 ============================================================ */
 
-/* -------------------- ROOT TOKENS -------------------- */
+/* ------------------ VARIABLES ------------------ */
 :root {
+  --black: #0b0b0b;
+  --dark: #111;
   --white: #ffffff;
-  --black: #0f0f0f;
-  --dark: #151515;
-  --gray: #6f6f6f;
-  --light-gray: #e6e6e6;
 
-  --gold: #f2c94c;
-  --gold-soft: #f7d774;
+  --gray-1: #222;
+  --gray-2: #555;
+  --gray-3: #999;
+  --gray-4: #e5e5e5;
 
-  --max-width: 1200px;
+  --accent: #f5c542;      /* gold */
+  --accent-dark: #d4a41f;
+
+  --max-width: 1180px;
 }
 
-/* -------------------- RESET -------------------- */
+/* ------------------ RESET ------------------ */
 *,
 *::before,
 *::after {
@@ -34,28 +37,28 @@ body {
   font-family: "Inter", sans-serif;
   background: var(--white);
   color: var(--black);
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
-/* -------------------- CONTAINER -------------------- */
+/* ------------------ CONTAINER ------------------ */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 28px;
 }
 
-/* -------------------- NAVBAR -------------------- */
+/* ------------------ NAVBAR ------------------ */
 .nav {
   position: fixed;
-  top: 0;
-  width: 100%;
+  inset: 0 0 auto 0;
+  height: 82px;
   background: rgba(255,255,255,0.97);
-  border-bottom: 1px solid var(--light-gray);
-  z-index: 999;
+  border-bottom: 1px solid var(--gray-4);
+  z-index: 1000;
 }
 
 .nav-inner {
-  height: 78px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -64,30 +67,30 @@ body {
 .brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .logo-img {
-  height: 46px;
+  height: 48px;
 }
 
 .brand-text strong {
   display: block;
   font-size: 14px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
 .brand-text span {
   font-size: 11px;
-  color: var(--gray);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
+  color: var(--gray-3);
 }
 
 nav a {
-  margin-left: 36px;
+  margin-left: 40px;
   font-size: 12px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--black);
@@ -98,10 +101,10 @@ nav a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -10px;
+  bottom: -12px;
   width: 0;
   height: 2px;
-  background: var(--gold);
+  background: var(--accent);
   transition: width .35s ease;
 }
 
@@ -109,29 +112,29 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* -------------------- HERO -------------------- */
+/* ------------------ HERO ------------------ */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
+  padding-top: 82px;
+  display: flex;
+  align-items: center;
   background:
-    linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
-    url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d");
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab");
   background-size: cover;
   background-position: center;
   color: var(--white);
-  display: flex;
-  align-items: center;
-  padding-top: 80px;
 }
 
 .hero h1 {
-  font-size: clamp(3.8rem, 6vw, 6.4rem);
+  font-size: clamp(3.8rem, 6vw, 6.6rem);
   font-weight: 900;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.04em;
   line-height: 1.05;
 }
 
 .hero h1 span {
-  color: var(--gold);
+  color: var(--accent);
 }
 
 .hero p {
@@ -141,69 +144,69 @@ nav a:hover::after {
   color: #dddddd;
 }
 
-/* -------------------- SECTIONS -------------------- */
+/* ------------------ SECTIONS ------------------ */
 .section {
-  padding: 130px 0;
+  padding: 140px 0;
 }
 
 .section h2 {
-  font-size: 38px;
+  font-size: 40px;
   font-weight: 800;
   letter-spacing: -0.02em;
-  margin-bottom: 36px;
+  margin-bottom: 42px;
 }
 
 .section h3 {
   font-size: 22px;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .section p {
-  color: var(--gray);
+  color: var(--gray-2);
 }
 
-/* -------------------- GRID -------------------- */
+/* ------------------ GRIDS ------------------ */
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 90px;
+  gap: 100px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 56px;
+  gap: 60px;
 }
 
-/* -------------------- PANELS -------------------- */
+/* ------------------ PANELS ------------------ */
 .panel {
-  padding-left: 36px;
-  border-left: 4px solid var(--light-gray);
+  padding-left: 40px;
+  border-left: 4px solid var(--gray-4);
 }
 
 .panel.emphasis {
-  border-left-color: var(--gold);
+  border-left-color: var(--accent);
 }
 
-/* -------------------- CARDS -------------------- */
+/* ------------------ CARDS ------------------ */
 .card {
-  padding-top: 28px;
-  border-top: 3px solid var(--light-gray);
+  padding-top: 32px;
+  border-top: 3px solid var(--gray-4);
 }
 
 .card.accent {
-  border-top-color: var(--gold);
+  border-top-color: var(--accent);
 }
 
-/* -------------------- STATS -------------------- */
+/* ------------------ STATS ------------------ */
 .stats {
   background:
-    linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.78)),
+    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
     url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee");
   background-size: cover;
   background-position: center;
-  padding: 140px 0;
+  padding: 160px 0;
   color: var(--white);
 }
 
@@ -214,39 +217,39 @@ nav a:hover::after {
 }
 
 .stats strong {
-  font-size: 56px;
+  font-size: 60px;
   font-weight: 900;
-  color: var(--gold);
+  color: var(--accent);
 }
 
 .stats p {
-  margin-top: 12px;
+  margin-top: 14px;
   font-size: 13px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #e0e0e0;
+  color: #dddddd;
 }
 
-/* -------------------- TEAM -------------------- */
+/* ------------------ TEAM ------------------ */
 #team p {
   max-width: 760px;
-  margin-top: 18px;
+  margin-top: 20px;
 }
 
-/* -------------------- FOOTER -------------------- */
+/* ------------------ FOOTER ------------------ */
 footer {
   background: var(--dark);
-  color: #aaaaaa;
-  padding: 56px 24px;
+  color: #bdbdbd;
+  padding: 60px 24px;
   text-align: center;
   font-size: 13px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
-/* -------------------- REVEAL -------------------- */
+/* ------------------ REVEAL ------------------ */
 .reveal {
   opacity: 0;
-  transform: translateY(70px);
+  transform: translateY(80px);
   animation: reveal 1.2s ease forwards;
 }
 
@@ -257,7 +260,7 @@ footer {
   }
 }
 
-/* -------------------- RESPONSIVE -------------------- */
+/* ------------------ RESPONSIVE ------------------ */
 @media (max-width: 900px) {
   nav {
     display: none;
