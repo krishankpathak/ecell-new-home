@@ -390,3 +390,131 @@ footer {
     padding: 100px 0;
   }
 }
+/* ============================================================
+   EVENT TIMELINE — ENTREPRENEURIAL / EDITORIAL
+============================================================ */
+
+.timeline {
+  padding: 160px 0;
+  background: var(--white);
+}
+
+.timeline-header {
+  max-width: 620px;
+  margin-bottom: 90px;
+}
+
+.timeline-header h2 {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.timeline-header h2 span {
+  color: var(--gold);
+}
+
+.timeline-header p {
+  margin-top: 22px;
+  font-size: 17px;
+  color: var(--gray-700);
+}
+
+/* ---------------- TRACK ---------------- */
+
+.timeline-track {
+  position: relative;
+  padding-left: 90px;
+}
+
+.timeline-track::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 36px;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--gold),
+    rgba(0,0,0,0.05)
+  );
+}
+
+/* ---------------- ITEM ---------------- */
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 90px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Dot */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  background: var(--white);
+  border: 3px solid var(--gold);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Year */
+.timeline-year {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+/* Content */
+.timeline-content h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.timeline-content p {
+  max-width: 640px;
+  color: var(--gray-700);
+}
+
+/* ---------------- FUTURE ITEM ---------------- */
+
+.timeline-item.future::before {
+  background: var(--gold);
+}
+
+.timeline-item.future .timeline-year {
+  color: var(--black);
+  font-weight: 700;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 900px) {
+  .timeline {
+    padding: 100px 0;
+  }
+
+  .timeline-track {
+    padding-left: 40px;
+  }
+
+  .timeline-track::before {
+    left: 14px;
+  }
+
+  .timeline-item::before {
+    left: 6px;
+  }
+}
