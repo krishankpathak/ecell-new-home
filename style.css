@@ -625,3 +625,130 @@ footer {
   opacity: 0;
   transform: rotate(90deg);
 }
+/* ============================================================
+   ANIMATION POLISH — EDITORIAL / PREMIUM
+============================================================ */
+
+/* ---------- GLOBAL MOTION TOKENS ---------- */
+:root {
+  --ease-out: cubic-bezier(.22,.61,.36,1);
+  --ease-soft: cubic-bezier(.25,.8,.25,1);
+  --dur-fast: 400ms;
+  --dur-med: 700ms;
+  --dur-slow: 1100ms;
+}
+
+/* ---------- BASE REVEAL (OVERRIDE OLD) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(64px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+  will-change: transform, opacity;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- STAGGER CHILD ELEMENTS ---------- */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity var(--dur-med) var(--ease-out),
+    transform var(--dur-med) var(--ease-out);
+}
+
+.reveal-stagger.show > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger.show > *:nth-child(1) { transition-delay: 80ms; }
+.reveal-stagger.show > *:nth-child(2) { transition-delay: 160ms; }
+.reveal-stagger.show > *:nth-child(3) { transition-delay: 240ms; }
+.reveal-stagger.show > *:nth-child(4) { transition-delay: 320ms; }
+.reveal-stagger.show > *:nth-child(5) { transition-delay: 400ms; }
+
+/* ---------- HERO TEXT ENTRANCE ---------- */
+.hero h1,
+.hero p {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 1.2s var(--ease-out),
+    transform 1.2s var(--ease-out);
+}
+
+.hero.show h1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero.show p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 220ms;
+}
+
+/* ---------- CARD MICRO-INTERACTIONS ---------- */
+.card,
+.panel {
+  transition:
+    transform var(--dur-fast) var(--ease-soft),
+    box-shadow var(--dur-fast) var(--ease-soft);
+}
+
+.card:hover,
+.panel:hover {
+  transform: translateY(-6px);
+}
+
+/* ---------- MOSAIC IMAGE MOTION ---------- */
+.mosaic-item img {
+  transform: scale(1.05);
+  transition: transform 1.2s var(--ease-out);
+}
+
+.mosaic-item:hover img {
+  transform: scale(1.12);
+}
+
+/* ---------- TIMELINE PROGRESSION ---------- */
+.timeline-item {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition:
+    opacity var(--dur-med) var(--ease-out),
+    transform var(--dur-med) var(--ease-out);
+}
+
+.timeline-item.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ---------- STATS COUNT GLOW ---------- */
+.stats strong {
+  transition: transform var(--dur-fast) var(--ease-soft);
+}
+
+.stats strong.animate {
+  transform: scale(1.08);
+}
+
+/* ---------- BUTTON / NAV LINK FEEL ---------- */
+nav a {
+  transition: color var(--dur-fast) ease;
+}
+
+/* ---------- REDUCE MOTION (ACCESSIBILITY) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
