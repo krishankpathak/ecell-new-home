@@ -1,29 +1,29 @@
 :root {
   /* ===== BACKGROUNDS ===== */
-  --bg-main: #050713;
-  --bg-layer-1: #0b1026;
-  --bg-layer-2: #11183c;
-  --glass: rgba(255, 255, 255, 0.08);
+  --bg-main: #f758cf;
+  --bg-layer-1: #f9ac39;
+  --bg-layer-2: #54f9d3;
+  --glass: rgba(234, 248, 32, 0.08);
 
   /* ===== TEXT ===== */
-  --text-main: #f8fafc;
-  --text-soft: #dbeafe;
-  --text-muted: #94a3b8;
+  --text-main: #9c52f8;
+  --text-soft: #408aeb;
+  --text-muted: #88e27f;
 
   /* ===== PRIMARY COLORS ===== */
-  --indigo: #6366f1;
-  --cyan: #22d3ee;
-  --sky: #38bdf8;
-  --emerald: #34d399;
-  --amber: #fbbf24;
-  --rose: #fb7185;
-  --violet: #a78bfa;
+  --indigo: #6031fa;
+  --cyan: #53def3;
+  --sky: #a1e1fd;
+  --emerald: #34f2ac;
+  --amber: #f4f437;
+  --rose: #ff6ab7;
+  --violet: #9a79fc;
 
   /* ===== GRADIENTS ===== */
   --gradient-hero:
-    radial-gradient(900px 500px at 15% -10%, rgba(99,102,241,0.45), transparent 60%),
-    radial-gradient(800px 450px at 85% 10%, rgba(34,211,238,0.45), transparent 55%),
-    radial-gradient(700px 400px at 50% 120%, rgba(251,191,36,0.35), transparent 60%);
+    radial-gradient(900px 500px at 15% -10%, rgba(87, 90, 253, 0.45), transparent 60%),
+    radial-gradient(800px 450px at 85% 10%, rgba(69, 223, 247, 0.45), transparent 55%),
+    radial-gradient(700px 400px at 50% 120%, rgba(233, 120, 248, 0.35), transparent 60%);
 
   --gradient-brand: linear-gradient(
     135deg,
@@ -34,8 +34,8 @@
 
   --gradient-card: linear-gradient(
     180deg,
-    rgba(230, 252, 64, 0.18),
-    rgba(252, 112, 191, 0.04)
+    rgba(249, 57, 227, 0.689),
+    rgba(78, 181, 244, 0.04)
   );
 
   --gradient-stats: linear-gradient(
